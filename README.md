@@ -1,5 +1,5 @@
 # Profile
-I am Nithin Eswarappa, Research Associate in DRDO sanctioned, Multi Sensor Image Fusion Lab, GITAM University, Bengaluru. My research interests are in the fields of computer vision, machine learning, deep learning. I have a keen interest on things related to sensing, perception and automation.
+I am Nithin Eswarappa, Research Associate in Multi Sensor Image Fusion Lab (DRDO sanctioned), GITAM University, Bengaluru. My research interests are in the fields of computer vision, machine learning, deep learning. I have a keen interest in things related to sensing, perception and automation.
 
 # Masters Thesis
 Thesis [report](https://github.com/nithineeswar/Git-Reports/blob/master/FP%20Report.pdf)
