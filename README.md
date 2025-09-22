@@ -1,17 +1,16 @@
-# Hi there 👋 I'm Nithin Eswarappa  
 
-🎯 Researcher | 🛰️ Multimodal Vision & Image Fusion | 🤖 Robotics & Embedded Systems  
+🎯 Researcher | 🛰️ Multimodal Fused Image synthesis | 🤖 Robotics & Embedded Systems  
 
 ---
 
 ## 🔬 About Me  
-I’m a researcher working on **multimodal / multisource vision sensors**, with experience in  
+I’m a researcher working on **multimodal/multisource vision sensors**, with experience in  
 - Image fusion, registration, and 3D perception  
 - Object detection & segmentation  
 - Embedded platform optimization (Jetson, ARM boards)  
 - Vision foundation models  
 
-Currently, I am a **Research Associate** at the **Multi Sensor Image Fusion Lab (MSIF), GITAM University (DRDO grant)**, focusing on **trimodal image fusion (Visible, IR, SAR)** and multimodal deep learning.  
+Currently, I am a **Research Associate** at the **Multi Sensor Image Fusion Lab (MSIF), GITAM University (DRDO grant)**, focusing on **trimodal image fusion (Visible, IR, SAR)** and multimodal deep learning for object detection and classification.
 
 ---
 
@@ -47,7 +46,7 @@ Currently, I am a **Research Associate** at the **Multi Sensor Image Fusion Lab 
 ---
 
 ## 🌐 Connect With Me  
-- 📧 Email: nithin.eswarappa@gmail.com  
+- 📧 Email: nithin.eswarappa@gmail.com
 - 🔗 [LinkedIn](https://www.linkedin.com/in/nithineswarappa/)  
 - 🔗 [GitHub](https://github.com/nithineeswar)  
 - 🔗 [Google Scholar](https://scholar.google.co.in/citations?user=QV5agwIAAAAJ)  
