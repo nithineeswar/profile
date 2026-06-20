@@ -36,7 +36,7 @@ I research and build vision systems that work in the real world — across diffi
 
 | Year | Venue | Title | Status |
 |------|-------|-------|--------|
-| 2026 | — | **BiFIS**: Bi-modal Fused Image Synthesis using Weight-Shared Bidirectional Cross-Attention (WS-BCA) and Multilayer Feature Alignment with a Vision Foundation Model | Planned Submission |
+| 2026 | — | Reformulating Multimodal Fusion as Encoder-Free Multiscale Image Synthesis with VFM Guided Representation Alignment | Planned Submission |
 | 2026 | — | **TriFIS**: Trimodal Fused Image Synthesis and A Visible-Infrared-SAR Benchmark Dataset | Planned Submission |
 | 2025 | IEEE TENCON | HyLapDFN: A Hybrid Approach for Infrared-Visible Image Fusion using Laplacian Pyramid and Decoder Fusion Network | Oral |
 | 2025 | IEEE SPACE | Conventional vs Deep-Learning Methods for Visible and Infrared Image Fusion: A Comparison | Oral |

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nithin Eswarappa</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #333;
+  background: #fff;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+}
+a { color: #1756a9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 2.5rem 0; }
+
+/* ── NAV ────────────────────────────────────────────────────────────────── */
+nav {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+nav a { color: #333; }
+nav a:hover { color: #1756a9; text-decoration: none; }
+nav span { color: #bbb; }
+
+/* ── PROFILE ────────────────────────────────────────────────────────────── */
+.profile {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+  align-items: start;
+}
+.profile-photo {
+  width: 190px;
+  height: 230px;
+  background: #f0f2f5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #aaa;
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  line-height: 1.6;
+  overflow: hidden;
+}
+/* To add your photo:
+   Replace .profile-photo div with:
+   <img src="photo.jpg" alt="Nithin Eswarappa"
+        style="width:160px;height:200px;object-fit:cover;border-radius:4px"> */
+.profile-photo img { width:100%; height:100%; object-fit:cover; border-radius:4px; }
+.profile-name {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+.profile-title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.profile-bio { font-size: 14.5px; color: #444; line-height: 1.8; margin-bottom: 1rem; }
+.profile-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 14px; }
+.profile-links a { color: #1756a9; font-weight: 600; }
+
+/* ── BANNER STRIP ─────────────────────────────────────────────────────────
+/*
+ * HOW TO ADD GIFs / IMAGES TO THE BANNER:
+ * Replace each .banner-slot div with:
+ *   <a href="YOUR_PROJECT_URL">
+ *     <img src="YOUR_FILE.gif" alt="Description"
+ *          style="height:130px;width:auto;display:block;border-radius:4px">
+ *   </a>
+ *
+ * For mp4 videos (like shurans.github.io uses):
+ *   <a href="YOUR_PROJECT_URL">
+ *     <video autoplay loop muted playsinline
+ *            style="height:130px;width:auto;border-radius:4px">
+ *       <source src="YOUR_FILE.mp4" type="video/mp4">
+ *     </video>
+ *   </a>
+ */
+.banner {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-bottom: 2.5rem;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #fff;
+}
+.banner-slot {
+  flex: 0 0 auto;
+  height: 250px;
+  width: 300px;
+  background: #f0f2f5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #aaa;
+  font-family: 'Source Code Pro', monospace;
+  text-align: center;
+  padding: 8px;
+  line-height: 1.6;
+  cursor: default;
+}
+
+/* ── SECTION HEADINGS ───────────────────────────────────────────────────── */
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111;
+  letter-spacing: 0.01em;
+}
+
+/* ── PUBLICATIONS & PROJECTS (left-image layout) ────────────────────────── */
+/*
+ * Each .entry looks like shurans.github.io:
+ * [IMAGE/GIF 160px wide] | Title, authors, venue, links
+ *
+ * HOW TO ADD YOUR IMAGE/GIF:
+ * Replace .entry-img div with:
+ *   <a href="YOUR_PROJECT_URL">
+ *     <img src="YOUR_FILE.gif" alt="Description"
+ *          style="width:160px;height:110px;object-fit:cover;
+ *                 display:block;border-radius:3px">
+ *   </a>
+ *
+ * For video thumbnails:
+ *   <video autoplay loop muted playsinline
+ *          style="width:160px;height:110px;object-fit:cover;border-radius:3px">
+ *     <source src="YOUR_FILE.mp4" type="video/mp4">
+ *   </video>
+ */
+.entry {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+  align-items: start;
+}
+.entry-img {
+  width: 200px;
+  height: 135px;
+  background: #f0f2f5;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #bbb;
+  font-family: 'Source Code Pro', monospace;
+  text-align: center;
+  padding: 6px;
+  line-height: 1.6;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.entry-img img,
+.entry-img video {
+  width: 200px;
+  height: 135px;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+.entry-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+.entry-title a { color: #1756a9; }
+.entry-authors { font-size: 13.5px; color: #555; margin-bottom: 0.2rem; }
+.entry-authors strong { color: #222; font-weight: 700; }
+.entry-venue { font-size: 13.5px; color: #444; margin-bottom: 0.4rem; }
+.entry-venue em { font-style: normal; font-weight: 700; }
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 3px;
+  margin-right: 4px;
+}
+.badge-oral   { background: #fef3c7; color: #92400e; }
+.badge-spot   { background: #dbeafe; color: #1e40af; }
+.badge-award  { background: #dcfce7; color: #166534; }
+.badge-plan   { background: #f3f4f6; color: #6b7280; }
+.entry-links { font-size: 13px; color: #666; }
+.entry-links a { color: #1756a9; margin-right: 2px; }
+.entry-links a:hover { text-decoration: underline; }
+
+/* ── EXPERIENCE / TIMELINE ──────────────────────────────────────────────── */
+.exp-item { margin-bottom: 1.25rem; }
+.exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+.exp-role { font-weight: 700; font-size: 14.5px; }
+.exp-period { font-size: 13px; color: #888; font-family: 'Source Code Pro', monospace; white-space: nowrap; }
+.exp-org { font-size: 14px; color: #1756a9; font-weight: 600; margin-bottom: 0.25rem; }
+.exp-desc { font-size: 14px; color: #555; line-height: 1.7; }
+
+/* ── SKILLS ─────────────────────────────────────────────────────────────── */
+.skills-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.skills-table td { padding: 5px 0; vertical-align: top; }
+.skills-table td:first-child { width: 220px; font-weight: 700; color: #333; padding-right: 1.5rem; white-space: nowrap; }
+.skills-table td:last-child { color: #555; }
+
+/* ── FOOTER ─────────────────────────────────────────────────────────────── */
+footer { font-size: 12.5px; color: #aaa; margin-top: 3rem; }
+
+/* ── ROTATING BANNER ────────────────────────────────────────────────────── */
+.banner-wrap {
+  margin-bottom: 2.5rem;
+  user-select: none;
+}
+.banner-track-outer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 0 auto; /* <-- ADDED: This centers the banner track horizontally on the page */
+}
+.banner-track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+.banner-slot {
+  flex: 0 0 250px;
+  height: 250px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #f0f2f5;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.banner-slot:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.15); transform: translateY(-2px); }
+.banner-slot img,
+.banner-slot video {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  pointer-events: none;
+}
+.banner-btn {
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%); /* <-- CHANGED: Changed from -65% to -50% to perfectly center the buttons vertically inside the boundary */
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #ddd; border-radius: 50%;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 20px; color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  z-index: 2; line-height: 1;
+  transition: box-shadow 0.15s;
+}
+.banner-btn:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+.banner-btn.prev { left: 10px; }
+.banner-btn.next { right: 10px; }
+.banner-dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+.banner-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #ddd; cursor: pointer; border: none; padding: 0;
+  transition: background 0.2s;
+}
+.banner-dot.active { background: #1756a9; }
+
+/* ── ZOOM OVERLAY ───────────────────────────────────────────────────────── */
+.banner-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.78);
+  z-index: 1000;
+  align-items: center; justify-content: center;
+}
+.banner-overlay.active   { display: flex; animation: ovIn  0.2s ease; }
+.banner-overlay.closing  { animation: ovOut 0.25s ease forwards; }
+.banner-overlay-content  { position: relative; animation: zmIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.banner-overlay-content.closing { animation: zmOut 0.25s ease forwards; }
+.banner-overlay-content img,
+.banner-overlay-content video {
+  max-width: 90vw; max-height: 80vh;
+  display: block; border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+}
+.banner-close {
+  position: absolute; top: -14px; right: -14px;
+  width: 30px; height: 30px;
+  background: #fff; border: none; border-radius: 50%;
+  cursor: pointer; font-size: 15px; color: #333;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.banner-close:hover { background: #f0f0f0; }
+@keyframes ovIn  { from { opacity:0; } to { opacity:1; } }
+@keyframes ovOut { from { opacity:1; } to { opacity:0; } }
+@keyframes zmIn  { from { transform:scale(0.4); opacity:0; } to { transform:scale(1); opacity:1; } }
+@keyframes zmOut { from { transform:scale(1); opacity:1; } to { transform:scale(0.4); opacity:0; } }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+
+/* Large desktops handled by max-width: 1100px */
+
+/* Tablets and small laptops */
+@media (max-width: 900px) {
+  body { padding: 32px 28px 60px; }
+  .banner-slot { height: 120px; width: 180px; }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .profile { grid-template-columns: 150px 1fr; gap: 1.75rem; }
+  .profile-photo { width: 140px; height: 175px; }
+  .entry { grid-template-columns: 160px 1fr; gap: 1rem; }
+  .entry-img { width: 160px; height: 110px; }
+  .entry-img img, .entry-img video { width: 160px; height: 110px; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  body { padding: 24px 18px 60px; font-size: 14px; }
+  nav { flex-wrap: wrap; gap: 0.5rem 0.75rem; }
+  nav span { display: none; }
+  .profile { grid-template-columns: 1fr; }
+  .profile-photo { width: 120px; height: 150px; }
+  .profile-name { font-size: 1.6rem; }
+  .entry { grid-template-columns: 1fr; }
+  .entry-img { width: 100%; height: 180px; }
+  .entry-img img, .entry-img video { width: 100%; height: 180px; }
+  .banner-slot { height: 100px; width: 150px; }
+  .banner-btn { display: none; }
+  /* Skills: stack on mobile */
+  .skills-table, .skills-table tbody,
+  .skills-table tr, .skills-table td { display: block; width: 100%; }
+  .skills-table td:first-child {
+    white-space: normal; padding-bottom: 2px; color: #111;
+  }
+  .skills-table tr { margin-bottom: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a><span>/</span>
+  <a href="#publications">Publications</a><span>/</span>
+  <a href="#experience">Experience</a><span>/</span>
+  <a href="#skills">Skills</a><span>/</span>
+  <a href="Nithin_Eswarappa_CV.pdf" target="_blank">CV</a>
+</nav>
+
+<!-- PROFILE -->
+<div id="about" class="profile">
+
+  <!-- PHOTO SLOT
+       Replace this div with:
+       <img src="photo.jpg" alt="Nithin Eswarappa"
+            style="width:160px;height:200px;object-fit:cover;border-radius:4px">
+  -->
+  <!-- <div class="profile-photo">photo.jpg<br>160 × 200</div> -->
+   <img src="Profile_Nithin.jpg" alt="Nithin Eswarappa"
+        style="width:160px;height:200px;object-fit:cover;border-radius:4px">
+  <div>
+    <div class="profile-name">Nithin Eswarappa</div>
+    <div class="profile-title">
+      Computer Vision · Deep Learning · Edge Deployment<br>
+      Research Associate, MSIF Lab, GITAM University (DRDO Grant) · Bengaluru, India
+    </div>
+    <p class="profile-bio">
+      I research and build vision systems that perceive across sensor modalities —
+      Visible, Infrared, and SAR — developing novel SOTA-beating deep learning
+      algorithms and deploying them as real-time TensorRT inference engines on
+      Nvidia Jetson. My work spans novel architecture design (cross-attention,
+      feature alignment, knowledge distillation), end-to-end detection and
+      segmentation pipelines, and edge deployment under strict memory and
+      latency constraints.
+    </p>
+    <p class="profile-bio">
+      <strong>Computer Vision:</strong> Expert in multimodal image fusion and detection/segmentation pipelines, with novel SOTA-beating results at IEEE TENCON, SPACE, and CONECCT.
+      <strong>Deep Learning:</strong> Designs architectures achieving <strong>3× faster inference</strong> and <strong>2× improved image quality metrics</strong> over SOTA 2025–26 fusion methods.
+      <strong>Edge Deployment:</strong> Optimises and ships DL models as TensorRT engines on Nvidia Jetson for real-world, resource-constrained operation.
+    </p>
+    <div class="profile-links">
+      <a href="https://github.com/nithineeswar" target="_blank">GitHub</a>
+      <a href="https://scholar.google.co.in/citations?user=QV5agwIAAAAJ" target="_blank">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/nithineswarappa/" target="_blank">LinkedIn</a>
+      <a href="Nithin_Eswarappa_CV.pdf" target="_blank">CV</a>
+      <a href="mailto:nithin.eswarappa@gmail.com">Email</a>
+    </div>
+  </div>
+</div>
+
+<!-- ROTATING BANNER
+     HOW TO ADD YOUR GIFs / IMAGES:
+     Replace each .banner-slot div's contents with:
+       <img src="YOUR_FILE.gif" alt="Description">
+     For mp4:
+       <video autoplay loop muted playsinline><source src="FILE.mp4" type="video/mp4"></video>
+     Add as many .banner-slot divs as you like — the JS handles rotation automatically.
+-->
+<div class="banner-wrap">
+  <div class="banner-track-outer">
+    <button class="banner-btn prev" id="bannerPrev">&#8249;</button>
+    <div class="banner-track" id="bannerTrack">
+      <div class="banner-slot" data-href="https://YOUR_LINK_1"><img src="fusion_bimodal.gif"             alt="Visible+IR fusion result"></div>
+      <div class="banner-slot" data-href="https://YOUR_LINK_2"><img src="fusion_trimodal.gif"            alt="Visible+IR+SAR fusion"></div>
+      <div class="banner-slot" data-href="https://YOUR_LINK_3"><img src="detection_result.gif"           alt="Object detection output"></div>
+      <div class="banner-slot" data-href="https://YOUR_LINK_4"><img src="performance_with_y_markers.jpg" alt="Performance metrics"></div>
+      <div class="banner-slot" data-href="https://YOUR_LINK_5"><img src="spider_Web_chart_fus.jpg"       alt="Spider web chart"></div>
+    </div>
+    <button class="banner-btn next" id="bannerNext">&#8250;</button>
+  </div>
+  <div class="banner-dots" id="bannerDots"></div>
+</div>
+
+<div class="banner-overlay" id="bannerOverlay">
+  <div class="banner-overlay-content" id="bannerOverlayContent">
+    <button class="banner-close" id="bannerClose">✕</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  // ── CONFIG ── change these two values if you resize banner slots in CSS
+  const SLOT_W = 250;   // must match CSS flex: 0 0 250px
+  const GAP    = 10;    // must match CSS gap: 10px
+  const STEP   = SLOT_W + GAP;
+  const VISIBLE = 3;    // slots visible at one time
+  const INTERVAL = 5000; // ms between auto-advances
+
+  const track    = document.getElementById('bannerTrack');
+  const outer    = track.parentElement;
+  const dotsEl   = document.getElementById('bannerDots');
+  const overlay  = document.getElementById('bannerOverlay');
+  const ovBox    = document.getElementById('bannerOverlayContent');
+  const closeBtn = document.getElementById('bannerClose');
+
+  document.getElementById('bannerPrev').onclick = () => move(-1);
+  document.getElementById('bannerNext').onclick = () => move(1);
+
+  // ── BUILD CIRCULAR CLONE BUFFER ──────────────────────────────────────────
+  // We clone VISIBLE slots at the end and VISIBLE at the start so wrapping
+  // looks seamless. The real slots sit between the two clone groups.
+  const realSlots  = Array.from(track.querySelectorAll('.banner-slot'));
+  const realCount  = realSlots.length;
+
+  // Prepend clones of last VISIBLE real slots
+  const headClones = realSlots.slice(-VISIBLE).map(s => {
+    const c = s.cloneNode(true); c.setAttribute('aria-hidden','true'); return c;
+  });
+  // Append clones of first VISIBLE real slots
+  const tailClones = realSlots.slice(0, VISIBLE).map(s => {
+    const c = s.cloneNode(true); c.setAttribute('aria-hidden','true'); return c;
+  });
+
+  headClones.forEach(c => track.prepend(c));
+  tailClones.forEach(c => track.appendChild(c));
+
+  // All children including clones
+  const allSlots = Array.from(track.querySelectorAll('.banner-slot'));
+  const cloneOffset = VISIBLE; // how many clones sit before the real slots
+
+  // Start position: first real slot visible (skip head clones)
+  let current = cloneOffset;
+  let timer   = null;
+  let paused  = false;
+
+  // Set initial position without animation
+  function jumpTo(idx) {
+    track.style.transition = 'none';
+    track.style.transform  = `translateX(-${idx * STEP}px)`;
+    current = idx;
+  }
+
+  function slideTo(idx) {
+    track.style.transition = `transform 0.45s cubic-bezier(0.4,0,0.2,1)`;
+    track.style.transform  = `translateX(-${idx * STEP}px)`;
+    current = idx;
+    updateDots();
+  }
+
+  // After transition ends, silently jump when we hit a clone boundary
+  track.addEventListener('transitionend', () => {
+    const total = allSlots.length;
+    if (current <= cloneOffset - 1) {
+      // Hit head clones → jump to matching real slot at the end
+      jumpTo(current + realCount);
+    } else if (current >= cloneOffset + realCount) {
+      // Hit tail clones → jump back to matching real slot at the start
+      jumpTo(current - realCount);
+    }
+  });
+
+  // ── DOTS ────────────────────────────────────────────────────────────────
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    for (let i = 0; i < realCount; i++) {
+      const d = document.createElement('button');
+      d.className = 'banner-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => { resetTimer(); slideTo(cloneOffset + i); };
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function updateDots() {
+    // Map current position back to a real slot index
+    const realIdx = ((current - cloneOffset) % realCount + realCount) % realCount;
+    dotsEl.querySelectorAll('.banner-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === realIdx));
+  }
+
+  // ── MOVEMENT ────────────────────────────────────────────────────────────
+  // Positive dir = left (forward). Negative dir = right (backward).
+  function move(dir) {
+    if (paused) return;
+    resetTimer();
+    slideTo(current + dir);
+  }
+
+  function tick()        { slideTo(current + 1); }   // always advance left
+  function startTimer()  { if (!paused) timer = setInterval(tick, INTERVAL); }
+  function stopTimer()   { clearInterval(timer); timer = null; }
+  function resetTimer()  { stopTimer(); startTimer(); }
+
+  outer.addEventListener('mouseenter', stopTimer);
+  outer.addEventListener('mouseleave', () => { if (!paused) startTimer(); });
+
+  // Touch swipe
+  let tx = null;
+  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive:true });
+  track.addEventListener('touchend', e => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) { resetTimer(); slideTo(current + (dx < 0 ? 1 : -1)); }
+    tx = null;
+  });
+
+  // ── ZOOM OVERLAY ────────────────────────────────────────────────────────
+  function openZoom(slot) {
+    if (slot.getAttribute('aria-hidden') === 'true') return; // ignore clone clicks
+    paused = true;
+    stopTimer();
+    ovBox.querySelectorAll('img, video').forEach(el => el.remove());
+    const media = slot.querySelector('img, video');
+    if (media) ovBox.appendChild(media.cloneNode(true));
+    // Store href for "open link" if set
+    const href = slot.dataset.href;
+    let linkEl = ovBox.querySelector('.overlay-link');
+    if (linkEl) linkEl.remove();
+    if (href && href !== 'https://YOUR_LINK_1' && !href.includes('YOUR_LINK')) {
+      linkEl = document.createElement('a');
+      linkEl.href = href; linkEl.target = '_blank';
+      linkEl.className = 'overlay-link';
+      linkEl.textContent = 'Open →';
+      linkEl.style.cssText = 'display:block;text-align:center;margin-top:10px;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.03em';
+      ovBox.appendChild(linkEl);
+    }
+    overlay.classList.remove('closing');
+    ovBox.classList.remove('closing');
+    overlay.classList.add('active');
+  }
+
+  function closeZoom() {
+    ovBox.classList.add('closing');
+    overlay.classList.add('closing');
+    setTimeout(() => {
+      overlay.classList.remove('active', 'closing');
+      ovBox.classList.remove('closing');
+      paused = false;
+      startTimer();
+    }, 260);
+  }
+
+  // Only attach click to real slots (not aria-hidden clones)
+  realSlots.forEach(s => s.addEventListener('click', () => openZoom(s)));
+  closeBtn.addEventListener('click', e => { e.stopPropagation(); closeZoom(); });
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeZoom(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closeZoom();
+  });
+
+  // ── INIT ────────────────────────────────────────────────────────────────
+  // Set outer width to exactly VISIBLE slots
+  outer.style.width = `${VISIBLE * STEP - GAP}px`;
+
+  window.addEventListener('resize', () => {
+    // Keep outer capped to page width on small screens
+    const maxW = document.body.offsetWidth - 0;
+    outer.style.width = `${Math.min(VISIBLE * STEP - GAP, maxW)}px`;
+    jumpTo(cloneOffset); // reset to start on resize
+    buildDots();
+  });
+
+  window.addEventListener('load', () => {
+    jumpTo(cloneOffset);
+    buildDots();
+    startTimer();
+  });
+
+  jumpTo(cloneOffset);
+  buildDots();
+  startTimer();
+})();
+</script>
+
+<hr>
+
+<!-- PUBLICATIONS -->
+<h2 id="publications">Publications</h2>
+
+<!-- Each entry: replace .entry-img with your actual image/gif. See CSS comment. -->
+
+<div class="entry">
+  <div class="entry-img">
+    <a href="detection_result.gif" target="_blank">
+        <img src="detection_result.gif" alt="Object detection output">
+    </a>
+</div>
+  <div>
+    <div class="entry-title">
+      Reformulating Multimodal Fusion as Encoder-Free Multiscale Image Synthesis with DINOv3-Guided Representation Alignment
+    </div>
+    <div class="entry-authors"><strong>Nithin Eswarappa</strong>, Jeevan KM, Waldekar S, Vivek BK, George K</div>
+    <div class="entry-venue"><span class="badge badge-plan">Planned Submission</span> 2026</div>
+    <div class="entry-links">Paper (coming soon)</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-img">
+    <a href="fusion_trimodal.gif" target="_blank">
+        <img src="fusion_trimodal.gif" alt="Visible+IR+SAR fusion">
+    </a>
+</div>
+  <div>
+    <div class="entry-title">
+      TriFIS: Trimodal Fused Image Synthesis and A Visible-Infrared-SAR Benchmark Dataset
+    </div>
+    <div class="entry-authors"><strong>Eswarappa N</strong>, Jeevan KM, Waldekar S, Vivek BK, George K</div>
+    <div class="entry-venue"><span class="badge badge-plan">Planned Submission</span> 2026</div>
+    <div class="entry-links">Paper (coming soon)</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-img">
+    <a href="https://ieeexplore.ieee.org/abstract/document/11375477/" target="_blank">
+        <img src="fusion_bimodal.gif" alt="Visible+IR fusion result">
+    </a>
+</div>
+  <div>
+    <div class="entry-title">
+      HyLapDFN: A Hybrid Approach for Infrared-Visible Image Fusion using Laplacian Pyramid and Decoder Fusion Network
+    </div>
+    <div class="entry-authors"><strong>Eswarappa N</strong>, Jeevan KM, Waldekar S, Vivek BK, George K</div>
+    <div class="entry-venue">
+      <span class="badge badge-oral">Oral</span>
+      <em>IEEE TENCON 2025</em>
+    </div>
+    <div class="entry-links">
+      <a href="https://ieeexplore.ieee.org/abstract/document/11375477/" target="_blank">Paper</a>
+    </div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-img">
+    <a href="https://ieeexplore.ieee.org/document/11170491/" target="_blank">
+        <img src="VIF_YCbCr_framework.jpg" alt="VIF YCbCr framework">
+    </a>
+</div>
+  <div>
+    <div class="entry-title">
+      Conventional vs Deep-Learning Methods for Visible and Infrared Image Fusion: A Comparison
+    </div>
+    <div class="entry-authors"><strong>Eswarappa N</strong>, Jeevan KM, Waldekar S, Vivek BK, George K</div>
+    <div class="entry-venue">
+      <span class="badge badge-oral">Oral</span>
+      <em>IEEE SPACE 2025</em>
+    </div>
+    <div class="entry-links">
+      <a href="https://ieeexplore.ieee.org/document/11170491/" target="_blank">Paper</a>
+    </div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-img">
+    <a href="https://ieeexplore.ieee.org/document/11170587/" target="_blank">
+        <img src="RS3_fused_57.jpg" alt="RS3 fused 57">
+    </a>
+</div>
+  <div>
+    <div class="entry-title">
+      Trimodal Image Fusion Framework for a Visible-Infrared-SAR Benchmark Dataset
+    </div>
+    <div class="entry-authors"><strong>Eswarappa N</strong>, Jeevan KM, Waldekar S, Vivek BK, George K</div>
+    <div class="entry-venue">
+      <span class="badge badge-oral">Oral</span>
+      <em>IEEE SPACE 2025</em>
+    </div>
+    <div class="entry-links">
+      <a href="https://ieeexplore.ieee.org/document/11170587/" target="_blank">Paper</a>
+    </div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-img">
+    <a href="https://ieeexplore.ieee.org/abstract/document/10677151/" target="_blank">
+        <img src="VIF_LCH_framework.jpg" alt="VIF LCH framework">
+    </a>
+</div>
+  <div>
+    <div class="entry-title">
+      A Colour-Focused Visible and Infrared Image Fusion Framework for Aiding Human Perception
+    </div>
+    <div class="entry-authors"><strong>Eswarappa N</strong>, Waldekar S, Jeevan KM, Vivek BK, George K</div>
+    <div class="entry-venue">
+      <span class="badge badge-oral">Oral</span>
+      <em>IEEE CONECCT 2024</em>
+    </div>
+    <div class="entry-links">
+      <a href="https://ieeexplore.ieee.org/abstract/document/10677151/" target="_blank">Paper</a>
+    </div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-img">
+    <a href="https://github.com/nithineeswar/Git-Reports/blob/master/FP%20Report.pdf/" target="_blank">
+        <img src="Masters-Thesis.jpg" alt="Masters-Thesis">
+    </a>
+</div>
+  <div>
+    <div class="entry-title">
+      Appearance Based Terrain Learning And Classification For Autonomous Mobile Robot Navigation, advised by Prof. Prabhakar Mishra, CISL, PESIT (2013--2015)
+    </div>
+    <div class="entry-authors"><strong>Nithin Eswarappa</strong></div>
+    <div class="entry-description">
+      Evaluated 15 visual feature representations (5 color spaces, 5 texture descriptors, and com-
+      binations) across GMM and MLP classifiers. Implemented a scalable MLP framework from scratch (configurable lay-
+      ers, neurons, and a generalized backpropagation routine) to systematically search 3 architectures per feature; trained
+      via stochastic gradient descent with momentum and layer-wise learning rate scheduling, using validation-based early
+      stopping and cross-dataset generalization testing. A key contribution of the work is the development of a calibrated
+      pixel-to-floor homography projection module that transforms 2D semantic classifications into a 3D rover-centric met-
+      ric map, effectively converting high-level visual data into actionable spatial information for physical path planning. This
+      work provides a scalable perception pipeline that bridges the gap between raw computer vision and reliable robotic
+      mobility in real-world settings (Grade: 190/200)
+    </div>
+    <div class="entry-links">
+      <a href="https://github.com/nithineeswar/Git-Reports/blob/master/FP%20Report.pdf/" target="_blank">Thesis</a>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:0.5rem;font-size:13.5px">
+  <a href="https://scholar.google.co.in/citations?user=QV5agwIAAAAJ" target="_blank">Full list on Google Scholar →</a>
+</div>
+
+<hr>
+
+<!-- EXPERIENCE -->
+<h2 id="experience">Experience</h2>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">Research Associate</span>
+    <span class="exp-period">Oct 2023 – Mar 2026</span>
+  </div>
+  <div class="exp-org">MSIF Lab, GITAM University · DRDO Grant</div>
+  <div class="exp-desc">Trimodal image fusion (Visible · IR · SAR) for object detection and classification. Novel DL framework using CNNs, ViT, DINO, SegFormer, VFMs — achieving 3× faster inference and 2× better image quality vs SOTA. TensorRT deployment on Nvidia Jetson. Mentoring 10 students and 1 junior research fellow.</div>
+</div>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">Senior Embedded Engineer · Robotics</span>
+    <span class="exp-period">Apr 2020 – Jul 2022</span>
+  </div>
+  <div class="exp-org">Vimaan.ai</div>
+  <div class="exp-desc">6-DOF indoor drone localization via ArUco marker-based camera pose estimation. Stereo depth pipeline using Intel RealSense for drone navigation. Autonomous battery management for continuous drone operations.</div>
+</div>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">Member of Technical Staff</span>
+    <span class="exp-period">Apr 2015 – Jun 2018</span>
+  </div>
+  <div class="exp-org">Tonbo Imaging</div>
+  <div class="exp-desc">Motion blur correction for dual electro-optic sensors (thermal IR + visible) on a 360°/sec rotating platform. 360° panoramic stitching for long-range passive RADAR surveillance. Geo-pointing PTU integration with GPS and RADAR. Multithreaded communication architecture for multi-sensor surveillance platforms.</div>
+</div>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">Graduate Student Researcher</span>
+    <span class="exp-period">Oct 2013 – Apr 2015</span>
+  </div>
+  <div class="exp-org">Centre for Intelligent Systems, PESIT</div>
+  <div class="exp-desc">M.Tech thesis: Appearance-based terrain learning and classification for autonomous mobile robot navigation. Advised by Prof. Prabhakar Mishra.</div>
+</div>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">Systems Engineer</span>
+    <span class="exp-period">Jul 2008 – Apr 2009</span>
+  </div>
+  <div class="exp-org">Siemens Information Systems Ltd.</div>
+  <div class="exp-desc">Feature development and change request resolution for Syngo, Siemens Healthcare medical imaging software.</div>
+</div>
+
+<hr>
+
+<!-- EDUCATION -->
+<h2>Education</h2>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">M.Tech in Intelligent Systems</span>
+    <span class="exp-period">Dec 2015</span>
+  </div>
+  <div class="exp-org">Visvesvaraya Technological University, Bengaluru</div>
+</div>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">GATE Fellowship · IIT Madras</span>
+    <span class="exp-period">Mar 2011</span>
+  </div>
+  <div class="exp-org">MHRD, Government of India · Electronics &amp; Communication Engineering</div>
+</div>
+
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-role">B.E. in Electronics and Communication</span>
+    <span class="exp-period">Jun 2008</span>
+  </div>
+  <div class="exp-org">Visvesvaraya Technological University, Bengaluru</div>
+</div>
+
+<hr>
+
+<!-- SKILLS -->
+<h2 id="skills">Technical Skills</h2>
+
+<table class="skills-table">
+  <tr>
+    <td>Computer Vision</td>
+    <td>Multimodal Fusion (Visible/IR/SAR), Image Synthesis, Object Detection, Semantic Segmentation, Image Registration, Stereo Vision, Panoramic Stitching, Image Quality Assessment</td>
+  </tr>
+  <tr>
+    <td>Deep Learning</td>
+    <td>PyTorch, TensorFlow, ONNX, TensorRT, Knowledge Distillation, YOLO, DINO, SegFormer, ViT, Vision Foundation Models (VFMs)</td>
+  </tr>
+  <tr>
+    <td>Programming</td>
+    <td>Python, C/C++, MATLAB, Bash, Git, LaTeX</td>
+  </tr>
+  <tr>
+    <td>Libraries</td>
+    <td>OpenCV, ROS, NumPy, scikit-image</td>
+  </tr>
+  <tr>
+    <td>Edge Platforms</td>
+    <td>Nvidia Jetson (Nano/NX/AGX), CUDA, Arduino, BeagleBone, TI DM365/8168, IMX6</td>
+  </tr>
+  <tr>
+    <td>Other Tools</td>
+    <td>QGIS, SNAP Toolbox (SAR), Linux</td>
+  </tr>
+</table>
+
+<hr>
+
+<!-- FOOTER -->
+<footer>
+  Nithin Eswarappa · Bengaluru, India · Member, IEEE · 
+  <a href="mailto:nithin.eswarappa@ieee.org">nithin.eswarappa@ieee.org</a> .
+  <a href="mailto:nithin.eswarappa@gmail.com">nithin.eswarappa@gmail.com</a>
+</footer>
+
+</body>
+</html>
